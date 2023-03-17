@@ -1,0 +1,232 @@
+.container {
+    width: 650px;
+    height: 300px;
+    max-width: 100%;
+    margin: 0px auto 0;
+    background: #f2f2f2;
+    margin-bottom: 60px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .containorupper {
+    width: 650px;
+    max-width: 100%;
+    margin: 15px auto 0;
+    background: #f2f2f2;
+    justify-content: space-between;
+  }
+  .fa-solid,
+  .fas {
+    align-items: center;
+    cursor: pointer;
+  }
+  .inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    margin: 0 auto;
+  }
+  .inner p {
+    padding: 1rem;
+    font-size: 23px;
+    font-weight: 600;
+  }
+  .left {
+    padding: 0.5rem;
+    width: 60%;
+    text-align: center;
+  }
+  .left input {
+    margin: 0.5rem;
+    color: #333;
+    width: 96%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    height: 3rem;
+    padding-left: 1rem;
+  }
+  .left select {
+    margin: 0.5rem;
+    color: #333;
+    width: 96%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    height: 3rem;
+  }
+  .left-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-inner .field {
+    width: 50%;
+    padding-left: 1rem;
+  }
+  .left p {
+    padding: 0.5rem;
+  }
+  .btnlogin {
+    /* margin-left: 3.5rem; */
+    /* margin-top: 10px; */
+    margin-left: 10px;
+    font-size: 1.4rem;
+    padding: 13px 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .mainheading {
+    width: 91%;
+    margin: 0 auto;
+    display: flex;
+  }
+  .mainheading a {
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    display: block;
+  }
+  .seperator {
+    height: 225px;
+    width: 2px;
+    background-color: #000;
+    position: relative;
+    top: 20px;
+  }
+  .mainheading a:visited {
+    background-color: grey;
+    border-top: 4px solid #dd4b38;
+  }
+  .mainheading a:hover {
+    background-color: grey;
+    border-top: 4px solid #dd4b38;
+  }
+  .seperator span {
+    background-color: #f2f2f2;
+    border-radius: 100%;
+    /* width: 25px; */
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: -13px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+  }
+  .right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  .right .btn_google {
+    position: relative;
+    top: 13%;
+    text-align: center;
+    background-color: #dd4b38;
+    font-size: 16px;
+    width: 100%;
+    padding: 13px 8px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .right .btn_google:hover{
+    color: #000;
+    transition: all 0.3s ease;  
+  }
+  .btn_facebook {
+    position: relative;
+    top: 25%;
+    background-color: #395498;
+    font-size: 14px;
+    width: 100%;
+    padding: 13px 8px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+  }
+  .btn_facebook:hover{
+    color: #000;
+    transition: all 0.3s ease;
+  }
+  .modal-title{
+    width:55%;
+    padding-left: 80px;
+  }
+  .btnAndForgot {
+    background-color: #dd4b38;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media only screen and (max-width: 767px) {
+    .left {
+      padding: 0 !important;
+      width: 100%;
+    }
+    .left input {
+      width: 97.7%;
+    }
+    .left-inner {
+      width: 100%;
+    }
+    .container {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+      margin: 0;
+    }
+    .right {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+    .sep {
+      border-bottom: 1px solid #000;
+      padding: 11px;
+      width: 70%;
+      margin: 0 auto;
+    }
+    .seperator {
+      display: none;
+    }
+    .seperator span {
+      display: none;
+    }
+    .btn_facebook {
+      margin-top: 10px;
+    }
+  }
+  @media screen and(max-width:450px) {
+    .modal-heading{
+      width: 88%;
+      padding-left: 20px;
+  }
+  .right .btn_google {
+    position: relative;
+    top: 0%;
+    text-align: center;
+    background-color: #dd4b38;
+    font-size: 13px;
+    width: 100%;
+    padding: 9px 4px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  }
+  

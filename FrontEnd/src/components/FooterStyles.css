@@ -1,0 +1,54 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+}
+.footer .containor{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+.footer .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
+  flex-wrap: wrap;
+}
+.top i {
+  color: #fff;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+.top i:hover {
+  color: orangered;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: start;
+  padding-top: 2rem;
+}
+.bottom div {
+  display: flex;
+  flex-direction: column;
+}
+.bottom h4 {
+  font-size: 1.3rem;
+  padding: 1rem 0 0.8rem 0;
+}
+.bottom a {
+  text-decoration: none;
+  color: #fafafa;
+  padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 850px) {
+  
+  .footer i {
+    padding: 1rem 1rem 0 0;
+  }
+  .bottom div {
+    width: 50%;
+  }
+}
