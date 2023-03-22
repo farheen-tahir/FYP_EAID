@@ -38,7 +38,7 @@
 .btn-donate a{
   text-decoration: none;
   color: #000;
-  background: grey;
+  background: #e0e7e6;
   padding: 6px 12px ;
   /* display: flex; */
   /* justify-content: center; */
@@ -53,21 +53,18 @@
   right: 2px;
   position:relative;
   padding-top: 11px;
-  /* background-color: orange ; */
 }
 .btn1{
   padding-bottom: 17px;
-  
 }
 .btn1 a{
   text-decoration: none;
     color: #000;
-    background: grey;
+    background: #e0e7e6;
     padding: 10px;
     display: block;
     width: 150px;
     margin: 0 auto;
-
 }
 
 @media screen and (max-width: 850px) {

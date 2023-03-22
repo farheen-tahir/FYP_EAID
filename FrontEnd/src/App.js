@@ -8,44 +8,22 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ActivateEmail from "./routes/ActivateEmail";
 import Home from "./dashboard/pages/home/Home";
+import Login from "./dashboard/pages/login/Login";
+import List from "./dashboard/pages/list/List";
+import Form from "./dashboard/pages/form/Form";
+import Single from "./dashboard/pages/single/Single";
+import New from "./dashboard/pages/new/New";
 import {ModeContext} from './context/userContext'
-import { useDispatch,useSelector } from "react-redux";
-import { dispatchLogin } from "./components/redux/actions/authAction";
+import { productInputs, userInputs } from "./dashboard/formSource";
+import NewForm from './dashboard/components/newForm/NewForm';
+import News from "./components/News";
+
 
 // import "../src/dashboard/style/dark.css";
 // import { useContext } from "react";
 // import { DarkModeContext } from "./dashboard/context/darkModeContext";
 
-
-
 export default function App() {
-  // const dispatch=useDispatch()
-  // const token=useSelector(state=>state.token)
-  // const auth=useSelector(state=>state.auth)
-  // useEffect(()=>{
-  //   const firstLogin=localStorage.getItem("firstLogin")
-  //   if(firstLogin) {
-  //     console.log("first log created")
-  //     const getToken=async()=>{
-  //       const res=await axios.post("http://localhost:5001/user/refresh_token",null)
-  //       console.log("res is this",res)
-  //       dispatch({type:"GET_TOKEN",payload:res.data.access_token})
-  //     }
-  //     getToken()
-  //   }
-  // },[auth.isLogged,dispatch])
-  // useEffect(()=>{
-  //   if(token){
-  //     const getUser=()=>{
-  //       dispatch(dispatchLogin())
-  //       return fetchUser(token).then(res=>{
-  //         dispatch(dispatchGetUser(res))
-
-  //       }) 
-  //     }
-  //     getUser()
-  //   }
-  // },[token],dispatch)
   const [userData, setUserData] = useState();
   const [isLoggedin, setIsLoggedIn] = useState(false);
 
@@ -64,8 +42,6 @@ console.log(err);
   useEffect(()=>{
     getUser();
   },[])
-  //farheen code
- 
   return (
     // <div className={darkMode ? "app dark" : "app"}>
     <ModeContext.Provider value={{userData, setUserData, isLoggedin, setIsLoggedIn}}>
@@ -74,12 +50,59 @@ console.log(err);
         <Route path="/" element={<Home1 />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Home />} />
+
+        <Route path="/dashboard">
+            <Route index element={<Home />} />
+            <Route path="/dashboard/login" element={<Login />} />
+            <Route path="/dashboard/form" element={<Form />} />
+            <Route path="/dashboard/user">
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={userInputs} title="Add New User" />}
+              />
+            </Route>
+            <Route path="admin">
+
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={userInputs} title="Add New User" />}
+              />
+            </Route>
+            <Route path="form" element={<NewForm/>} />
+            
+            <Route path="donations">
+              <Route index element={<List />} />
+              <Route path=":productId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={productInputs} title="Add New Product" />}
+              />
+            </Route>
+       
+          </Route>
+        
+        {/* <Route path="/dashboard">
+        <Route index element={<Home/>} />
+            <Route path="user">
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={userInputs} title="Add New User" />}
+              />
+        </Route> */}
         {/* <Route path="/signin" element={<SignUp />} /> */}
+        <Route path="/formm" element={<NewForm />} />
+        <Route path="/news" element={<News />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="/user/activate/:activation_token" element={<ActivateEmail />}  exact/>
-      </Routes>
+      </Routes>   
     </div>
+    {/* hello world*/}
     </ModeContext.Provider>
   );
 }

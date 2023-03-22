@@ -8,12 +8,9 @@ import SignUp  from "../routes/SignUp";
 import SignUpModal from "./SignUpModal";
 import { useSelector } from "react-redux";
 import { ModeContext } from "../context/userContext";
-import image from "../assets/profile.png" 
-import logo from "../assets/logo.PNG"
-
+import image from '../assets/img/img-1.jpg' 
 function Navbar() {
   const {userData, setUserData,isLoggedin, setIsLoggedIn} = useContext(ModeContext)
-
 
   const handleDataReceived = (data) => {
     console.log(data); // Data from grandchild
@@ -31,10 +28,8 @@ function Navbar() {
   const {user,isLogged}=auth;
   console.log("user is : ",user)
   const userLink=()=>{
-    
     return <li>
-      {/* <Link><img src={user.avatar} alt=" "/>{user.name}</Link> */}
-      {/* {user.name} */}
+      <Link><img src="user.avatar" alt=" "/></Link>
     </li>
   }
   const [show, setShow] = useState(false);
@@ -49,7 +44,6 @@ function Navbar() {
     <>
     <div>
     <div><nav className="NavbarItems">
-    {/* <img alt="img" src="../assets/logo.PNG"/> */}
         <h1 className="navbar-logo">EAid</h1>
         <div className="menu-icons" onClick={handleClick}>
           <i className={state ? "fas fa-times" : "fas fa-bars"}></i>
@@ -58,20 +52,10 @@ function Navbar() {
           {MenuItems.map((item, index) => {
             return (
               <li  key={index}>
-              {userData? 
                 <Link to={item.url} className={item.cName}>
                   <i className={item.icon} aria-hidden="true"></i>
                   {item.title}
-                </Link>:item.title!="Donation"? <Link to={item.url} className={item.cName}>
-                  <i className={item.icon} aria-hidden="true"></i>
-                  {item.title}
-                </Link>: null}
-              
-              
-                {/* <Link to={item.url} className={item.cName}>
-                  <i className={item.icon} aria-hidden="true"></i>
-                  {item.title}
-                </Link> */}
+                </Link>
               </li>
             );
           })}
@@ -79,9 +63,7 @@ function Navbar() {
            {userData? <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <img src={image} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
     <span style={{ marginTop: '10px',marginBottom:'-5px',  fontSize: '18px', fontWeight: 'bold' }}>{userData}</span>
-  </div> : <Button style={{backgroundColor:"orange",border:"Transparent"}} className="btnSignUp" variant="primary" onClick={handleShow}> Sign In </Button>}
-  {/* farheen */}
-  {/* {isLogged?userLink():<Button variant="primary" onClick={handleShow}> Sign In </Button>} */}
+  </div> : <Button variant="primary" onClick={handleShow}> Sign In </Button>}
           {/* </Link> */}
         </ul>
       </nav></div>
@@ -98,7 +80,6 @@ function Navbar() {
       </Modal>
         </div> */}
         <SignUpModal show={show} handleClose={handleClose} onDataReceived={handleDataReceived}/>
-        {/* <SignUpModal show={show} handleClose={handleClose} /> */}
     </div>
     
        
