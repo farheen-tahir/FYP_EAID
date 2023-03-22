@@ -41,8 +41,9 @@ function Login(props) {
          if(res.data.data.user.name){
         console.log(res.data.data.user.name,"status")
          navigate("/")}
-         localStorage.setItems("firstLogin",true);
+         localStorage.setItem("firstLogin",true);
          dispatch(dispatchLogin())
+         navigate("/")
         }catch(err) {
             err.response.data.msg && 
             setUser({...user,err:err.response.data.msg,success:""});

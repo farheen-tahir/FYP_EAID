@@ -51,7 +51,7 @@ function Mission() {
               />
             </div>
             <div
-              classname="box-img-animate-item"
+              className="box-img-animate-item"
               data-parallax-scroll='{"y":60, "x": 70,  "smoothness": 50 }'
             >
               <img
@@ -83,7 +83,7 @@ function Mission() {
               <div className="col-md-6 col-lg-12">
                 <div className="box-icon-modern">
                   <div className="box-icon-inner decorate-triangle">
-                    <span class="icon-xl linearicons-baby2 icon-primary"></span>
+                    <span className="icon-xl linearicons-baby2 icon-primary"></span>
                   </div>
                   <div className="box-icon-caption">
                     <h4>

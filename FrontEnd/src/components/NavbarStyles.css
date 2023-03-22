@@ -27,6 +27,7 @@
   text-align: center;
   margin-bottom: 0 !important;
   align-items: center;
+  overflow:hidden;
 }
 .nav-links {
   text-decoration: none;
@@ -47,6 +48,10 @@
 } */
 .nav-links-mobile {
   display: none;
+}
+.btnSignUp {
+  background-color: red;
+  border: transparent;
 }
 button {
   margin-top: -7px;

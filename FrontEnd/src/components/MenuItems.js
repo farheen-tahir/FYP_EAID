@@ -12,16 +12,16 @@ export const MenuItems = [
     icon: "fa-solid fa-circle-info"
   },
   {
-    title: "Donation",
-    url: "/donation",
-    cName: "nav-links",
-    icon: "fas fa-donate"
-  },
-  {
     title: "Contact",
     url: "/contact",
     cName: "nav-links",
     icon: "fa-solid fa-address-book"
+  },
+  {
+    title: "Donation",
+    url: "/donation",
+    cName: "nav-links",
+    icon: "fas fa-donate"
   },
   {
     title: "Sign Up",
