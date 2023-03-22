@@ -102,7 +102,7 @@ console.log(err);
         <Route path="/user/activate/:activation_token" element={<ActivateEmail />}  exact/>
       </Routes>   
     </div>
-    {/* hello */}
+    {/* hello world*/}
     </ModeContext.Provider>
   );
 }
