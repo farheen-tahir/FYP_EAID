@@ -1,0 +1,15 @@
+
+.form {
+    display: flex;
+    width: 100%;
+    
+  }
+  .form .formContainer {
+
+    flex: 6;
+    
+  }
+  .formfields{
+    /* border: 1px dotted blue; */
+    margin-top: 50px;
+  }

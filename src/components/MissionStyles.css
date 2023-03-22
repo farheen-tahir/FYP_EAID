@@ -1,0 +1,112 @@
+
+#img-1 {
+	width:217px;
+	animation: mover 3.5s infinite  alternate;
+}
+
+@keyframes mover {
+	0% { transform: translateY(0); }
+	0% { transform: translateX(140); }
+	/* 100% { transform: translateY(20px);} */
+	100% { transform: translateX(50px); }
+}
+#img-2 {
+	width:271px;
+	animation: mover-2 3.5s infinite  alternate;
+}
+@keyframes mover-2 {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(50px);}
+}
+#img-3 {
+	width:271px;
+	animation: mover-3 3.5s infinite  alternate;
+}
+@keyframes mover-3 {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(30px);} 
+	 100% { transform: translateX(-50px); } 
+}
+#img-4 {
+	width:339px;
+	animation: mover-4 3.5s infinite  alternate;
+}
+@keyframes mover-4 {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(30px);} 
+	 100% { transform: translateX(-50px); } 
+}
+#img-5 {
+	width:179px;
+	animation: mover-5 3.5s infinite  alternate;
+}
+@keyframes mover-5 {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(-50px);}
+	 
+}
+#img-6 {
+	width:217px;
+	animation: mover-6 3.5s infinite  alternate;
+}
+@keyframes mover-6 {
+	0% { transform: translateY(0); } 
+	  100% { transform: translateY(-70px); } 
+
+}
+
+
+.box-img-animate {
+	text-align: center;
+}
+
+.box-img-animate .box-img-animate-item {
+	display: inline-block;
+}
+
+.box-img-animate .box-img-animate-item img {
+	border-radius: 6px;
+	box-shadow: 8px 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1199.98px) {
+	.box-img-animate .box-img-animate-item + .box-img-animate-item {
+		margin-top: 20px;
+	}
+	.box-img-animate .box-img-animate-item {
+		padding: 0 15px;
+	}
+}
+
+/* .box-2  {
+    position: relative;
+    top: 25%;
+    left: 50%;
+    text-align: justify;
+} */
+h1 {
+    text-align: center;
+    font-size: 5rem;
+}
+h4:hover{
+    color: orangered;
+}
+.outer-box{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 5px;
+	background-color: #fff;
+}
+.inner-div{
+	height:100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+section {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 230px;
+}
