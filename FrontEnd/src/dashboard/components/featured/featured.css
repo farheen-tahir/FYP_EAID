@@ -42,10 +42,12 @@
 .featured .bottom .summary {
   width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 .featured .bottom .summary .item {
+
   text-align: center;
 }
 .featured .bottom .summary .item .itemTitle {

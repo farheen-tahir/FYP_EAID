@@ -17,17 +17,13 @@ import { ModeContext } from './context/userContext'
 import { productInputs, userInputs } from "./dashboard/formSource";
 import NewForm from './dashboard/components/newForm/NewForm';
 import News from "./components/News";
-
-
-// import "../src/dashboard/style/dark.css";
-// import { useContext } from "react";
-// import { DarkModeContext } from "./dashboard/context/darkModeContext";
+import "./dashboard/style/dark.css";
+import { DarkModeContext } from "./dashboard/context/darkModeContext";
 
 export default function App() {
   const [userData, setUserData] = useState();
   const [isLoggedin, setIsLoggedIn] = useState(false);
-
-  // const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
   const [user, setUser] = useState(null);
   const getUser = async () => {
     try {
@@ -45,7 +41,7 @@ export default function App() {
   return (
     // <div className={darkMode ? "app dark" : "app"}>
     <ModeContext.Provider value={{ userData, setUserData, isLoggedin, setIsLoggedIn }}>
-      <div className="App">
+      <div className={darkMode ? "App dark" : "App"}>
         <Routes>
           <Route exact path="/" element={<Home1 />} />
           <Route exact path="/about" element={<About />} />
@@ -95,7 +91,7 @@ export default function App() {
           <Route exact path="/formm" element={<NewForm />} />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/donation" element={<Donation />} />
-          <Route exact path="/user/activate/:activation_token" element={<ActivateEmail />} exact />
+          <Route exact path="/user/activate/:activation_token" element={<ActivateEmail />} />
         </Routes>
       </div>
       {/* hello world*/}
