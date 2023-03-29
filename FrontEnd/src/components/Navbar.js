@@ -76,12 +76,12 @@ function Navbar() {
             );
           })}
 
-           {userData? <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+           {/* {userData? <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <img src={image} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
     <span style={{ marginTop: '10px',marginBottom:'-5px',  fontSize: '18px', fontWeight: 'bold' }}>{userData}</span>
-  </div> : <Button style={{backgroundColor:"orange",border:"Transparent"}} className="btnSignUp" variant="primary" onClick={handleShow}> Sign In </Button>}
+  </div> : <Button style={{backgroundColor:"orange",border:"Transparent"}} className="btnSignUp" variant="primary" onClick={handleShow}> Sign In </Button>} */}
   {/* farheen */}
-  {/* {isLogged?userLink():<Button variant="primary" onClick={handleShow}> Sign In </Button>} */}
+  {isLogged?userLink():<Button variant="primary" onClick={handleShow}> Sign In </Button>}
           {/* </Link> */}
         </ul>
       </nav></div>

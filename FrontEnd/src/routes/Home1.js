@@ -9,8 +9,39 @@ import { mapOptions } from "../components/MapConfiguration";
 // import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
+import { dispatchLogin } from "../components/redux/actions/authAction";
+import { fetchUser,dispatchGetUser } from "../components/redux/actions/authAction";
 
 function Home1() {
+  const dispatch=useDispatch()
+  const token=useSelector(state=>state.token)
+  const auth=useSelector(state=>state.auth)
+
+  useEffect(()=>{
+    const firstLogin=localStorage.getItem("firstLogin")
+    if(firstLogin) {
+      console.log("first log created")
+      const getToken=async()=>{
+        const res=await axios.post("http://localhost:5001/user/refresh_token",null)
+        console.log("res is this",res)
+        dispatch({type:"GET_TOKEN",payload:res.data.access_token})
+      }
+      getToken()
+    }
+  },[auth.isLogged,dispatch])
+  useEffect(()=>{
+    if(token){
+      const getUser=()=>{
+        dispatch(dispatchLogin())
+        return fetchUser(token).then(res=>{
+          dispatch(dispatchGetUser(res))
+
+        }) 
+      }
+      getUser()
+    }
+  },[token],dispatch)
   const {isLoaded}=useJsApiLoader({
     id:mapOptions.googleMapApiKey,
     googleMapApiKey:mapOptions.googleMapApiKey

@@ -9,43 +9,29 @@ import axios from "axios";
 import ActivateEmail from "./routes/ActivateEmail";
 import Home from "./dashboard/pages/home/Home";
 import {ModeContext} from './context/userContext'
-import { useDispatch,useSelector } from "react-redux";
-import { dispatchLogin } from "./components/redux/actions/authAction";
 
+import ForgotPass from "./routes/ForgotPass"
+import { useDispatch, useSelector } from "react-redux";
 // import "../src/dashboard/style/dark.css";
 // import { useContext } from "react";
 // import { DarkModeContext } from "./dashboard/context/darkModeContext";
 
 
-
 export default function App() {
-  // const dispatch=useDispatch()
-  // const token=useSelector(state=>state.token)
-  // const auth=useSelector(state=>state.auth)
-  // useEffect(()=>{
-  //   const firstLogin=localStorage.getItem("firstLogin")
-  //   if(firstLogin) {
-  //     console.log("first log created")
-  //     const getToken=async()=>{
-  //       const res=await axios.post("http://localhost:5001/user/refresh_token",null)
-  //       console.log("res is this",res)
-  //       dispatch({type:"GET_TOKEN",payload:res.data.access_token})
-  //     }
-  //     getToken()
-  //   }
-  // },[auth.isLogged,dispatch])
-  // useEffect(()=>{
-  //   if(token){
-  //     const getUser=()=>{
-  //       dispatch(dispatchLogin())
-  //       return fetchUser(token).then(res=>{
-  //         dispatch(dispatchGetUser(res))
+ const dispatch=useDispatch();
+ const token=useSelector(state=>state.token);
+ const auths=useSelector(state=>state.auth);
+ useEffect(()=>{
+const firstLogin=localStorage.getItem("fistLogin")
+if(firstLogin) {
+  const getToken=async()=>{
+    const res=await axios.post("http://localhost:5001/user/refresh_token",null)
+    console.log("res is : ",res)
+  }
+  getToken()
+}
+ },[auths.isLogged])
 
-  //       }) 
-  //     }
-  //     getUser()
-  //   }
-  // },[token],dispatch)
   const [userData, setUserData] = useState();
   const [isLoggedin, setIsLoggedIn] = useState(false);
 
@@ -65,7 +51,8 @@ console.log(err);
     getUser();
   },[])
   //farheen code
- 
+ const auth=useSelector(state=>state.auth)
+ const {isLogged}=auth
   return (
     // <div className={darkMode ? "app dark" : "app"}>
     <ModeContext.Provider value={{userData, setUserData, isLoggedin, setIsLoggedIn}}>
@@ -76,7 +63,8 @@ console.log(err);
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Home />} />
         {/* <Route path="/signin" element={<SignUp />} /> */}
-        <Route path="/donation" element={<Donation />} />
+        <Route path="/donation" element={isLogged?<Donation />:null} />
+        <Route path="/forgot_password" element={<ForgotPass />} />
         <Route path="/user/activate/:activation_token" element={<ActivateEmail />}  exact/>
       </Routes>
     </div>

@@ -87,7 +87,7 @@ const userCtrl={
             const rf_token=req.cookies.refreshtoken;
             if(!rf_token) return res.status(400).json({msg:"Please! Login now"}); 
             jwt.verify(rf_token,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
-                if(err) return res.status(400).json({msg:"Please! Login now"}); 
+                if(err) {return res.status(400).json({msg:"Please! Login now"}); console.log("error here")}
                 console.log(user);
                 const access_token=createAccessToken({id:user.id})
                 res.json({access_token});
@@ -177,6 +177,13 @@ const userCtrl={
             await Users.findOneAndUpdate(req.params.id)
             res.json({msg:"Successfully Deleted"})
         }catch(err){
+            return res.status(500).json({msg:err.message});
+        }
+    },
+    googleLogin:async(req,res)=>{
+        try {
+
+        }catch(err) {
             return res.status(500).json({msg:err.message});
         }
     }
