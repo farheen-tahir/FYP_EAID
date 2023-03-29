@@ -36,14 +36,14 @@ function Form() {
       return setUser({...user,err:"Password didn't match",success:""});
     try {
       
-      const res=await axios.post("http://localhost:5000/user/register",{name,email,password})
+      const res=await axios.post("http://localhost:5001/user/register",{name,email,password})
       setUser({...user,err:"",success:res.data.msg});
       
     }catch(err) {
       err.response.data.msg && 
             setUser({...user,err:err.response.data.msg,success:""});
     }
-       const res=await axios.post("http://localhost:5000/register",{name,email,password});
+       const res=await axios.post("http://localhost:5001/register",{name,email,password});
        console.log(res);
   }
   

@@ -57,7 +57,7 @@ return true;
     if(name&&email&&password&&type) {
       if(isValidPass(password)&&isValidEmail(email)) {
         alert("successfully registered");
-        axios.post("http://localhost:5000/signup",user).then(res => console.log(res));
+        axios.post("http://localhost:5001/signup",user).then(res => console.log(res));
       }
       else {
         alert("invalid");
@@ -108,7 +108,7 @@ return true;
               By signing up you are agree to our terms and use and privacy
               policy.
             </p> */}
-            <button className="btnlogin" onClick={register}>Create an account</button>
+            <button className="btnlogin" onClick={register}>Create an accounts</button>
           {/* </form> */}
         </div>
         <div className="seperator">

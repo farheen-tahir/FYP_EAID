@@ -74,9 +74,10 @@ const userCtrl={
                 path:"/user/refresh_token",
                 maxAge:7*24*60*60*1000//7 days
             })
-            res.json({msg:"Login Successful", data:{user}});
+            const accessToken = jwt.sign(user._id, 'secret', {expiresIn:'15m'});
+            res.json({msg:"Login Successful", data:{user}, token:accessToken});
             res.status(200);
-            console.log(res.status);
+            console.log(res.status, 'with token : ', accessToken);
 
         }catch(err) {
             return res.status(500).json({msg:err.message});

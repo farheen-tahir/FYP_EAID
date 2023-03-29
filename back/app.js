@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express=require("express");
 const mongoose=require("mongoose");
 const cors=require("cors");
@@ -20,7 +21,7 @@ app.use("/subscriber",require("./routes/subscriberRouter"));
 app.use("/api",require("./routes/upload"));
 
 //DB CONNECTIVITY
-mongoose.connect(process.env.MONGODB_URL);
+mongoose.connect('mongodb://127.0.0.1:27017');
 
 const db = mongoose.connection;
 
@@ -40,6 +41,7 @@ console.log('Connected to MongoDB successfully');
 
 
 const PORT=process.env.PORT;
+console.log("Port is : ", PORT)
 
 app.listen(PORT,()=>{
     console.log("SERVER IS RUNNING ON PORT NO. ",PORT)
