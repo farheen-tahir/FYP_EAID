@@ -32,11 +32,12 @@ const userCtrl={
            const activation_token=createActivationToken(newUser);
 
            console.log(activation_token);
+           await newUser.save();
            const url=`${process.env.CLIENT_URL}/user/activate/${activation_token}`;
            
            sendMail(email,url,"Verify your Email Address");
 
-        //    console.log({activation_token});
+           console.log({activation_token});
             res.json({msg:"resgister successfully!please activate your email to start."})
         }catch(err){
             return res.status(500).json({msg:err.message})

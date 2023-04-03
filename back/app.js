@@ -21,7 +21,7 @@ app.use("/subscriber",require("./routes/subscriberRouter"));
 app.use("/api",require("./routes/upload"));
 
 //DB CONNECTIVITY
-mongoose.connect('mongodb://127.0.0.1:27017');
+mongoose.connect('mongodb://127.0.0.1:27017/eaidSystem');
 
 const db = mongoose.connection;
 

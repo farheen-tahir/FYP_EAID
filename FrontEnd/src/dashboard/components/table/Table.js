@@ -80,7 +80,7 @@ const List = () => {
               <TableCell className="tableCell">{row.id}</TableCell>
               <TableCell className="tableCell">
                 <div className="cellWrapper">
-                  <img src={row.img} alt="" className="image" />
+                  <img src={row.img} alt={row.donor}/>
                   {row.donor}
                 </div>
               </TableCell>
@@ -95,6 +95,7 @@ const List = () => {
           ))}
         </TableBody>
       </Table>
+      
     </TableContainer>
   );
 };
