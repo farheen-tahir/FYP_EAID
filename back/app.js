@@ -22,14 +22,13 @@ app.use("/subscriber",require("./routes/subscriberRouter"));
 app.use("/api",require("./routes/upload"));
 
 //DB CONNECTIVITY
-mongoose.connect(process.env.MONGODB_URL,{
-    // useCreateIndex:true,
-    // useFindAndModify:false,
-    // useNewUrlParser:true,
-    // useUnifiedTopology:true
-},err=>{
-    if (err) throw err;
-    console.log("Connected to DB")
+mongoose.connect('mongodb://127.0.0.1:27017');
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('connected', function() {
+console.log('Connected to MongoDB successfully');
 });
 
 // const db = mongoose.connection;

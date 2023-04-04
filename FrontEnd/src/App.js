@@ -4,26 +4,24 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Donation from "./routes/Donation";
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext,useSelector } from "react";
 import axios from "axios";
 import ActivateEmail from "./routes/ActivateEmail";
 import Home from "./dashboard/pages/home/Home";
-import {ModeContext} from './context/userContext'
-import ForgotPass from "./routes/ForgotPass"
-import { useDispatch, useSelector } from "react-redux";
 import Login from "./dashboard/pages/login/Login";
 import List from "./dashboard/pages/list/List";
 import Form from "./dashboard/pages/form/Form";
 import Single from "./dashboard/pages/single/Single";
 import New from "./dashboard/pages/new/New";
+import { ModeContext } from './context/userContext'
 import { productInputs, userInputs } from "./dashboard/formSource";
 import NewForm from './dashboard/components/newForm/NewForm';
 import News from "./components/News";
 import "./dashboard/style/dark.css";
 import { DarkModeContext } from "./dashboard/context/darkModeContext";
 import ResetPass from "./routes/ResetPass";
-
-
+import ForgotPass from "./routes/ForgotPass"
+import Donations from "./routes/Donation"
 
 // export default function App() {
 //  const dispatch=useDispatch();
@@ -69,33 +67,16 @@ export default function App() {
           <Route exact path="/" element={<Home1 />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="dashboard/user/new" element={<New inputs={userInputs} title="Add New User" />} />          
+          <Route exact path="dashboard/user/new" element={<New inputs={userInputs} title="Add New User" />} />
           <Route exact path="/dashboard">
             <Route index element={<Home />} />
-            <Route exact path="/dashboard/login" element={<Login />} />
             <Route exact path="/dashboard/form" element={<Form />} />
             <Route exact path="/dashboard/user">
               <Route index element={<List />} />
               <Route exact path=":userId" element={<Single />} />
-            </Route>
-            <Route exact path="admin">
-
-              <Route index element={<List />} />
-              <Route exact path=":userId" element={<Single />} />
-              <Route
-                exact path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
-              />
-            </Route>
+            </Route>           
             <Route exact path="form" element={<NewForm />} />
-
-            <Route exact path="donations">
-              <Route index element={<List />} />
-              <Route exact path=":productId" element={<Single />} />
-              <Route
-                exact path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
+            <Route exact path="/dashboard/donations" element={<Donations />}>            
             </Route>
           </Route>
           <Route exact path="/formm" element={<NewForm />} />
@@ -107,7 +88,6 @@ export default function App() {
           {/* <Route exact path="/user/reset" element={<ResetPass/>} /> */}
         </Routes>
       </div>
-      {/* hello world*/}
     </ModeContext.Provider>
   );
 }

@@ -2,7 +2,14 @@
   display: flex;
   align-items: center;
 }
-.table .cellWrapper .image {
+/* img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+} */
+.table .cellWrapper img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
