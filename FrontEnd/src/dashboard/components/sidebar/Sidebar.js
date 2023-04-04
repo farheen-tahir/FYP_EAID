@@ -34,7 +34,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <p className="title">LISTS</p>
-          <Link to="/user" style={{ textDecoration: "none" }}>
+          <Link to="/dashboard/user" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>User</span>
@@ -45,12 +45,14 @@ const Sidebar = () => {
             <VolunteerActivismIcon className="icon" />
             <span>Donations</span>
             </li>
-          </Link>
+          </Link>          
           <p className="title">USEFUL</p>
-          <li>
+          <Link to="/dashboard/form" style={{ textDecoration: "none" }}>
+            <li>
             <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
+            <span>form</span>
+            </li>
+          </Link>
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
@@ -81,7 +83,7 @@ const Sidebar = () => {
       </div>
       <div className="bottom">
         <div
-          className="colorOption"
+          className="colorOption1"
           onClick={() => dispatch({ type: "LIGHT" })}
         ></div>
         <div

@@ -6,12 +6,9 @@ import Footer from "../components/Footer";
 import {useJsApiLoader} from "@react-google-maps/api";
 import Map from "../components/Map";
 import { mapOptions } from "../components/MapConfiguration";
-// import { useDispatch,useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
-import { useDispatch,useSelector } from "react-redux";
-import { dispatchLogin } from "../components/redux/actions/authAction";
-import { fetchUser,dispatchGetUser } from "../components/redux/actions/authAction";
 
 function Home1() {
   const dispatch=useDispatch()
@@ -46,7 +43,18 @@ function Home1() {
     id:mapOptions.googleMapApiKey,
     googleMapApiKey:mapOptions.googleMapApiKey
   });
-
+  const dispatch=useDispatch()
+  const token=useSelector(state=>state.token)
+  useEffect(()=>{
+    const firstLogin=localStorage.getItem("firstLogin")
+    if(firstLogin) {
+      const getToken=async () =>{
+        const res=await axios.post("http://localhost:5000/user/refresh_token",null)
+        console.log(res)
+      }
+      getToken()
+    }
+  },[])
   return (
     <>
       <Navbar />

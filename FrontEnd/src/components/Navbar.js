@@ -2,18 +2,17 @@ import React, { useEffect, useState, useContext } from "react";
 import "./NavbarStyles.css";
 import { MenuItems } from "./MenuItems";
 import {Button , Modal} from "react-bootstrap";
-// import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import SignUp  from "../routes/SignUp";
 import SignUpModal from "./SignUpModal";
 import { useSelector } from "react-redux";
 import { ModeContext } from "../context/userContext";
-import image from "../assets/profile.png" 
-import logo from "../assets/logo.PNG"
+import image from '../assets/img/img-1.jpg' 
+import logo from "../assets/logo.PNG";
+
 
 function Navbar() {
   const {userData, setUserData,isLoggedin, setIsLoggedIn} = useContext(ModeContext)
-
 
   const handleDataReceived = (data) => {
     console.log(data); // Data from grandchild
@@ -31,10 +30,8 @@ function Navbar() {
   const {user,isLogged}=auth;
   console.log("user is : ",user)
   const userLink=()=>{
-    
     return <li>
-      {/* <Link><img src={user.avatar} alt=" "/>{user.name}</Link> */}
-      {/* {user.name} */}
+      <Link><img src="user.avatar" alt=" "/></Link>
     </li>
   }
   const [show, setShow] = useState(false);
@@ -48,41 +45,37 @@ function Navbar() {
   return (
     <>
     <div>
-    <div><nav className="NavbarItems">
-    {/* <img alt="img" src="../assets/logo.PNG"/> */}
-        <h1 className="navbar-logo">EAid</h1>
+      <nav className="NavbarItems">
+        <div className="navbar-logo-items">
+          <img className="navbar-logo-img" src={logo}/>
+          <h1 className="navbar-logo">EAid</h1>
+        </div>
         <div className="menu-icons" onClick={handleClick}>
-          <i className={state ? "fas fa-times" : "fas fa-bars"}></i>
+          <i className={state ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
         </div>
         <ul className={state ? "nav-menu active" : "nav-menu"}>
           {MenuItems.map((item, index) => {
             return (
               <li  key={index}>
-              {userData? 
-                <Link to={item.url} className={item.cName}>
+              {!userData?item.title!="Donation"&&item.title!="News"?
+              <Link to={item.url} className={item.cName}>
                   <i className={item.icon} aria-hidden="true"></i>
                   {item.title}
-                </Link>:item.title!="Donation"? <Link to={item.url} className={item.cName}>
+                </Link>:null:<Link to={item.url} className={item.cName}>
                   <i className={item.icon} aria-hidden="true"></i>
                   {item.title}
-                </Link>: null}
-              
-              
-                {/* <Link to={item.url} className={item.cName}>
-                  <i className={item.icon} aria-hidden="true"></i>
-                  {item.title}
-                </Link> */}
+                </Link>
+              }
+                
               </li>
             );
           })}
 
-           {/* {userData? <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <img src={image} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
-    <span style={{ marginTop: '10px',marginBottom:'-5px',  fontSize: '18px', fontWeight: 'bold' }}>{userData}</span>
-  </div> : <Button style={{backgroundColor:"orange",border:"Transparent"}} className="btnSignUp" variant="primary" onClick={handleShow}> Sign In </Button>} */}
-  {/* farheen */}
-  {isLogged?userLink():<Button variant="primary" onClick={handleShow}> Sign In </Button>}
-          {/* </Link> */}
+           {userData? <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <img src={image} style={{ borderRadius: '50%', width: '40px', height: '40px' }} />
+    <span style={{marginBottom:'-5px',  fontSize: '18px', fontWeight: 'bold' }}>{userData}</span>
+  </div> : <Button variant="primary" className="button" onClick={handleShow}> Sign In </Button>}
+          {/* /* </Link> */}
         </ul>
       </nav></div>
      
@@ -98,8 +91,7 @@ function Navbar() {
       </Modal>
         </div> */}
         <SignUpModal show={show} handleClose={handleClose} onDataReceived={handleDataReceived}/>
-        {/* <SignUpModal show={show} handleClose={handleClose} /> */}
-    </div>
+ 
     
        
      

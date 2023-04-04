@@ -22,7 +22,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/admin/test" style={{ textDecoration: "none" }}>
+            <Link to="/dashboard/user/user:456" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -40,12 +40,15 @@ const Datatable = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to={url==`http://localhost:3000/admin`?`/admin/new`
+        <Link to='http://localhost:3000/dashboard/user/new' className="link" >
+          Add New
+        </Link>
+        {/* <Link to={url==`http://localhost:3000/admin`?`/admin/new`
         :`http://localhost:3000/user`?`/user/new`
         :`http://localhost:3000/donations`?`/donations/new`
         :``} className="link" >
           Add New
-        </Link>
+        </Link> */}
       </div>
       <DataGrid
         className="datagrid"

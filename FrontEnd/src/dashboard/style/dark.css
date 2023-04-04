@@ -1,49 +1,49 @@
-.app.dark {
+.App.dark {
   background-color: #111;
   color: rgb(156, 156, 156);
 }
-.app.dark .chartGrid {
+.App.dark .chartGrid {
   stroke: rgba(228, 228, 228, 0.219);
 }
-.app.dark .table {
+.App.dark .table {
   background-color: #111;
 }
-.app.dark .table .tableCell {
+.App.dark .table .tableCell {
   color: gray;
 }
-.app.dark .navbar {
+.App.dark .navbar {
   color: #999;
   border-color: #333;
 }
-.app.dark .navbar .search {
+.App.dark .navbar .search {
   border-color: gray;
 }
-.app.dark .sidebar {
+.App.dark .sidebar {
   background-color: #111;
   border-color: #333;
 }
-.app.dark .sidebar .top .logo {
+.App.dark .sidebar .top .logo {
   color: #999;
 }
-.app.dark .sidebar hr {
+.App.dark .sidebar hr {
   border-color: #333;
 }
-.app.dark .sidebar ul li:hover {
+.App.dark .sidebar ul li:hover {
   background-color: #333;
 }
-.app.dark .sidebar ul li .icon {
+.App.dark .sidebar ul li .icon {
   color: #999;
 }
-.app.dark .datatable .datagrid {
+.App.dark .datatable .datagrid {
   color: gray;
   border: none;
 }
-.app.dark .datatable .datagrid .viewButton,
-.app.dark .datatable .datagrid .deleteButton,
-.app.dark .datatable .datagrid .cellWithStatus {
+.App.dark .datatable .datagrid .viewButton,
+.App.dark .datatable .datagrid .deleteButton,
+.App.dark .datatable .datagrid .cellWithStatus {
   color: gray;
   border: none;
 }
-.app.dark input {
+.App.dark input {
   background-color: transparent;
 }

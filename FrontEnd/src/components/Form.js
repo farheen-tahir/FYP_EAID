@@ -43,7 +43,8 @@ function Form() {
       err.response.data.msg && 
             setUser({...user,err:err.response.data.msg,success:""});
     }
-     
+       const res=await axios.post("http://localhost:5001/register",{name,email,password});
+       console.log(res);
   }
   
   return (
@@ -98,3 +99,24 @@ function Form() {
 }
 export default Form;
 
+
+// const [user,setUser]=useState({
+//   email:"",
+//   password:"" 
+// });
+// const handleChange = e => {
+//   const {name,value}=e.target;
+//   setUser({
+//     ...user,
+//     [name]:value
+//   });
+// } 
+// const {email,password}=user;
+// const login= async e => {
+//   e.preventDefault();
+//   try {
+//    const res=await axios.post("http://localhost:5000/user/login",{email,password})
+//    console.log(res)
+//   }catch(err) {
+
+//   }

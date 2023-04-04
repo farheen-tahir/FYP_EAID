@@ -4,13 +4,7 @@ import "./FormStyles.css";
 import Login from "./Login";
 import Form from "./Form"
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 function SignUpModal({show,handleClose}, props) {
-
-
-
-
-
     const[showRegister,setshowRegister]=useState(false);
     
     // useEffect(()=>{props.getConf2(status)},[status])

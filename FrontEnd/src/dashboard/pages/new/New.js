@@ -10,6 +10,7 @@ const New = ({ inputs, title }) => {
 
   return (
     <div className="new">
+      {/* <h1>This is new user </h1> */}
       <Sidebar />
       <div className="newContainer">
         <Navbar />
