@@ -7,20 +7,22 @@ import { showErrMsg,showSuccessMsg } from "./Notification";
 import {dispatchLogin} from "./redux/actions/authAction";
 import { useDispatch } from "react-redux"; 
 import { ModeContext } from "../context/userContext";
+
+
 function Login(props) {
-  
   const {userData, setUserData, isLoggedin, setIsLoggedIn} = useContext(ModeContext)
-    const [user,setUser]=useState({
-        email:"",
-        password:"",
-        err:"",
-        success:""
-      });
-      const dispatch=useDispatch();
-      const navigate=useNavigate()
-      const {email,password,err,success}=user;
-      const handleChange = e => {
-        const {name,value}=e.target;
+  const dispatch=useDispatch();
+    const navigate=useNavigate();
+
+  const [user,setUser]=useState({
+    email:"",
+    password:"",
+    err:"",
+    success:""
+    });
+    const {email,password,err,success}=user;
+    const handleChange = e => {
+    const {name,value}=e.target;
         setUser({
           ...user,
           [name]:value,err:"",success:""
@@ -35,6 +37,7 @@ function Login(props) {
          console.log("response from frontend",res)
          console.log("status is ",res.status)
          setUserData(res.data.data.user.name);
+         
          if(res.status==200){
             setIsLoggedIn(true)
          }
@@ -46,6 +49,7 @@ function Login(props) {
         }catch(err) {
             err.response.data.msg && 
             setUser({...user,err:err.response.data.msg,success:""});
+            console.log(user)
         }
       } 
   return (

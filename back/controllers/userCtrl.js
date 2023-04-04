@@ -61,20 +61,17 @@ const userCtrl={
     login:async(req,res)=>{
         try{
             const {email,password}=req.body;
-            console.log(email);
             const user=await Users.findOne({email});
             if(!user) return res.status(400).json({msg:"This Email does not exist."})
-
             const isMatch=await bcrypt.compare(password,user.password)
             if(!isMatch) return res.status(400).json({msg:"Pin is incorrect"})
-            console.log(user);
             const refresh_token=createRefreshToken({id:user._id});
             res.cookie("refreshtoken",refresh_token,{
                 httpOnly:true,
                 path:"/user/refresh_token",
                 maxAge:7*24*60*60*1000//7 days
             })
-            const accessToken = jwt.sign(user._id, 'secret', {expiresIn:'15m'});
+            const accessToken = jwt.sign({id:user._id}, 'secret', {expiresIn:'15m'});
             res.json({msg:"Login Successful", data:{user}, token:accessToken});
             res.status(200);
             console.log(res.status, 'with token : ', accessToken);

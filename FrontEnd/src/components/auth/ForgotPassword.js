@@ -4,7 +4,7 @@ import { isEmail } from "../Validation";
 import { showErrMsg,showSuccessMsg } from "../Notification";
 import { Label } from "recharts";
 import { Button } from "react-bootstrap";
-
+import "./ForgotPasswordStyles.css";
 
 const initialState={
     email:"",
@@ -39,8 +39,8 @@ function ForgotPassword(){
             {err&&showErrMsg(err)}
             {success&&showSuccessMsg(success)}
             <Label htmlFor="email">Enter your Email</Label>
-            <input type="email" name="email" id="email" value={email} onChange={handleChangeInput}/>
-            <Button onClick={forgotPassword}>Verify Email</Button>
+            <input type="email" name="email" placeholder="Enter Your Email" id="email" value={email} onChange={handleChangeInput}/>
+            <Button className="forgetbtn" onClick={forgotPassword}>Verify Email</Button>
         </div>
     </div>
     </>

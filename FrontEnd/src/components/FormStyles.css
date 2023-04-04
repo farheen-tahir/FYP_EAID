@@ -159,13 +159,19 @@
     transition: all 0.3s ease;
   }
   .modal-title{
-    width:55%;
+    width:75%;
     padding-left: 80px;
   }
   .btnAndForgot {
-    background-color: #dd4b38;
+    /* background-color: #dd4b38; */
     display: flex;
     justify-content: space-between;
+  }
+  button[type='submit']{
+    display: block;
+  }
+  .modal-content{
+    height: 78vh;
   }
   @media only screen and (max-width: 767px) {
     .left {
@@ -210,6 +216,12 @@
     .btn_facebook {
       margin-top: 10px;
     }
+    .modal-content{
+      height: 68vh;
+    }
+    .modal-header .btn-close{
+      display: block;
+    }
   }
   @media screen and(max-width:450px) {
     .modal-heading{
@@ -227,6 +239,12 @@
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
+  }
+  .modal-content{
+    height: 68vh;
+  }
+  .modal-header .btn-close{
+    display: block;
   }
   }
   
