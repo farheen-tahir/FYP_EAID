@@ -32,7 +32,8 @@ const userCtrl={
            const activation_token=createActivationToken(newUser);
 
            console.log(activation_token);
-           await newUser.save();
+           const Newuser = new Users(newUser);
+           Newuser.save();
            const url=`${process.env.CLIENT_URL}/user/activate/${activation_token}`;
            
            sendMail(email,url,"Verify your Email Address");
@@ -60,7 +61,7 @@ const userCtrl={
         }
     },
     login:async(req,res)=>{
-        try{
+        // try{
             const {email,password}=req.body;
             console.log(email);
             const user=await Users.findOne({email});
@@ -80,9 +81,9 @@ const userCtrl={
             res.status(200);
             console.log(res.status, 'with token : ', accessToken);
 
-        }catch(err) {
-            return res.status(500).json({msg:err.message});
-        }
+        // }catch(err) {
+        //     return res.status(500).json({msg:err.message});
+        // }
     },
     getAccessToken:(req,res)=>{
         try{
