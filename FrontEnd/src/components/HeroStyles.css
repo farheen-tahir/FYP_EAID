@@ -46,6 +46,11 @@ img {
   font-weight: bold;
   letter-spacing: 2px;
 }
+.hero-txt .show:hover{
+  background-color: #000;
+  color: #fff;
+  transition: all ease 0.2s;
+}
 .hero-txt hide {
   display: none;
 }

@@ -63,20 +63,17 @@ const userCtrl={
     login:async(req,res)=>{
         // try{
             const {email,password}=req.body;
-            console.log(email);
             const user=await Users.findOne({email});
             if(!user) return res.status(400).json({msg:"This Email does not exist."})
-
             const isMatch=await bcrypt.compare(password,user.password)
             if(!isMatch) return res.status(400).json({msg:"Pin is incorrect"})
-            console.log(user);
             const refresh_token=createRefreshToken({id:user._id});
             res.cookie("refreshtoken",refresh_token,{
                 httpOnly:true,
                 path:"/user/refresh_token",
                 maxAge:7*24*60*60*1000//7 days
             })
-            const accessToken = jwt.sign(user._id, 'secret', {expiresIn:'15m'});
+            const accessToken = jwt.sign({id:user._id}, 'secret', {expiresIn:'15m'});
             res.json({msg:"Login Successful", data:{user}, token:accessToken});
             res.status(200);
             console.log(res.status, 'with token : ', accessToken);
@@ -90,7 +87,7 @@ const userCtrl={
             const rf_token=req.cookies.refreshtoken;
             if(!rf_token) return res.status(400).json({msg:"Please! Login now"}); 
             jwt.verify(rf_token,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
-                if(err) return res.status(400).json({msg:"Please! Login now"}); 
+                if(err) {return res.status(400).json({msg:"Please! Login now"}); console.log("error here")}
                 console.log(user);
                 const access_token=createAccessToken({id:user.id})
                 res.json({access_token});
@@ -180,6 +177,13 @@ const userCtrl={
             await Users.findOneAndUpdate(req.params.id)
             res.json({msg:"Successfully Deleted"})
         }catch(err){
+            return res.status(500).json({msg:err.message});
+        }
+    },
+    googleLogin:async(req,res)=>{
+        try {
+
+        }catch(err) {
             return res.status(500).json({msg:err.message});
         }
     }

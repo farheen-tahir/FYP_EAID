@@ -1,0 +1,27 @@
+.nl_pass{
+background-color: #ffffff;
+padding: 70px 0;
+}
+.containfr{
+    width: 64%;
+    margin: 0 auto;
+}
+input#email{
+    margin: 10px 0;
+}
+button.btn.btn-primary.subsbtn{
+    width: 33%;
+    margin: 0 auto;
+}
+input#name{
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+input#email{
+    width: 70%!important;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}

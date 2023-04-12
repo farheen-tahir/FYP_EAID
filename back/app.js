@@ -15,13 +15,14 @@ app.use(fileUpload({
     useTempFiles:true
 }));
 
+
 //ROUTES
 app.use("/user",require("./routes/userRouter"));
 app.use("/subscriber",require("./routes/subscriberRouter"));
 app.use("/api",require("./routes/upload"));
 
 //DB CONNECTIVITY
-mongoose.connect('mongodb://127.0.0.1:27017/eaidSystem');
+mongoose.connect('mongodb://127.0.0.1:27017');
 
 const db = mongoose.connection;
 
@@ -29,6 +30,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('connected', function() {
 console.log('Connected to MongoDB successfully');
 });
+
+// const db = mongoose.connection;
+
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('connected', function() {
+// console.log('Connected to MongoDB successfully');
+// });
 // ,{
 //     useCreateIndex:true,
 //     useFindAndModify:false,
@@ -38,6 +46,10 @@ console.log('Connected to MongoDB successfully');
 //     if(err) throw err;
 //     console.log("Connected to DataBase");
 // }
+
+
+
+
 
 
 const PORT=process.env.PORT;
